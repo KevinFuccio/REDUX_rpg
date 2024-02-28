@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "job_title": "Construction Worker",
+    "salary": "$40,000",
+    "required_degree": "High School",
+    "hired": false
+  },
+  {
+    "id": 2,
+    "job_title": "Registered Nurse",
+    "salary": "$75,000",
+    "required_degree": "College",
+    "hired": false
+  },
+  {
+    "id": 3,
+    "job_title": "Retail Sales Associate",
+    "salary": "$25,000",
+    "required_degree": "High School",
+    "hired": false
+  },
+  {
+    "id": 4,
+    "job_title": "Electrician",
+    "salary": "$50,000",
+    "required_degree": "High School",
+    "hired": false
+  },
+  {
+    "id": 5,
+    "job_title": "Data Entry Clerk",
+    "salary": "$30,000",
+    "required_degree": "High School",
+    "hired": false
+  },
+  {
+    "id": 6,
+    "job_title": "Customer Service Representative",
+    "salary": "$35,000",
+    "required_degree": "High School",
+    "hired": false
+  },
+  {
+    "id": 7,
+    "job_title": "Carpenter",
+    "salary": "$45,000",
+    "required_degree": "High School",
+    "hired": false
+  },
+  {
+    "id": 8,
+    "job_title": "Medical Assistant",
+    "salary": "$35,000",
+    "required_degree": "College",
+    "hired": false
+  },
+  {
+    "id": 9,
+    "job_title": "Delivery Driver",
+    "salary": "$30,000",
+    "required_degree": "High School",
+    "hired": false
+  },
+  {
+    "id": 10,
+    "job_title": "Security Guard",
+    "salary": "$30,000",
+    "required_degree": "High School",
+    "hired": false
+  }
+]
+
+  

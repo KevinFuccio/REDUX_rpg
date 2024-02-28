@@ -1,15 +1,15 @@
-import { User } from "../../interfaces";
 import "./style.scss";
+import { RootState } from "../../state/store";
+import { useSelector } from "react-redux";
 
-const userCard = ({
-  data,
+const UserCard = ({
   setOptionsRender,
-  optionsRender,
+  setNavSelection,
 }: {
-  data: User;
   setOptionsRender: (value: boolean) => void;
-  optionsRender: boolean;
+  setNavSelection: (value: string) => void;
 }) => {
+  const user = useSelector((state: RootState) => state.user);
   return (
     <div
       style={{
@@ -22,16 +22,16 @@ const userCard = ({
       }}
       className="userCard"
     >
-      <h3>Name: {data.name}</h3>
-      <h5>Money: {data.money}€</h5>
+      <h3>Name: {user.name}</h3>
+      <h5>Money: {user.money}€</h5>
       <div>
         <i
           style={{ cursor: "pointer" }}
           className="fa-solid fa-gear"
-          onClick={() => setOptionsRender(!optionsRender)}
+          onClick={() => {setOptionsRender(true),setNavSelection('')}}
         ></i>
       </div>
     </div>
   );
 };
-export default userCard;
+export default UserCard;

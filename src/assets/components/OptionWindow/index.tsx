@@ -1,6 +1,8 @@
-import { User } from "../../interfaces";
+import { useSelector } from "react-redux";
+import { RootState } from "../../state/store";
 
-const userCard = ({ data,setOptionsRender }: { data: User,setOptionsRender: (value:boolean)=> void }) => {
+const OptionWindow = ({setOptionsRender }: {setOptionsRender: (value:boolean)=> void }) => {
+  const user = useSelector((state: RootState) => state.user);
   return (
     <div
       style={{
@@ -23,13 +25,13 @@ const userCard = ({ data,setOptionsRender }: { data: User,setOptionsRender: (val
           onClick={() => setOptionsRender(false)}
         ></i>
       </div>
-      <h3>Name: {data.name}</h3>
-      <h5>Age: {data.age}</h5>
-      <h5>Money: {data.money}€</h5>
-      <h5>Gender: {data.gender}</h5>
-      <h5>Current Job: {data.job}</h5>
+      <h3>Name: {user.name}</h3>
+      <h5>Age: {user.age}</h5>
+      <h5>Money: {user.money}€</h5>
+      <h5>Gender: {user.gender}</h5>
+      <h5>Current Job: {user.job}</h5>
       
     </div>
   );
 };
-export default userCard;
+export default OptionWindow;
