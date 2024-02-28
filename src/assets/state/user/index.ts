@@ -19,6 +19,9 @@ const userSlice = createSlice({
        jobPay:(state,action:PayloadAction<string>)=>{
         const paycheck = action.payload.replace(/[$,]/g, '');
         state.money += Math.round(Number(paycheck)/12)
+       },
+       jobQuit:(state)=>{
+        state.job = 'Unemployed'
        }
     },
     extraReducers: (builder)=>{
@@ -46,5 +49,5 @@ export const userFetchData = createAsyncThunk(
     }
 )
 
-export const {jobHire,jobPay} = userSlice.actions
+export const {jobHire,jobPay,jobQuit} = userSlice.actions
 export default userSlice.reducer
