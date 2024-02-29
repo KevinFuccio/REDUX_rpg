@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import jobSlice from "./jobList/index";
 import userSlice from "./user/index"
+import timeManagement from "./timeManagement";
 
 export const store = configureStore({
   reducer: {
     jobList:jobSlice,
-    user:userSlice
+    user:userSlice,
+    timeManage:timeManagement
   },
 });
 

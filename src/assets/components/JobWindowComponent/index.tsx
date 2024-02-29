@@ -4,23 +4,17 @@ import { hiring, quit } from "../../state/jobList";
 import "./style.scss";
 import { AppDispatch, RootState } from "../../state/store";
 import { jobHire, jobQuit } from "../../state/user";
-
+import { handleClearInterval, handleMonthlyPay } from "../../utils";
 
 const JobWindow = ({
   setNavSelection,
-  handleMonthlyPay,
-  handleClearInterval
 }: {
   setNavSelection: (value: string) => void;
-  handleMonthlyPay: (value: string) => void;
-  handleClearInterval: ()=> void
 }) => {
   const jobsList = useSelector((state: RootState) => state.jobList);
- 
+  const intervalId = useSelector((state: RootState) => state.timeManage.intervalId);
   const dispatch = useDispatch<AppDispatch>();
 
-  
-  
   return (
     <div
       style={{
@@ -61,8 +55,8 @@ const JobWindow = ({
                       className="quitBtn"
                       onClick={() => {
                         dispatch(quit(e.id));
-                        dispatch(jobQuit())
-                        handleClearInterval()
+                        dispatch(jobQuit());
+                        handleClearInterval(intervalId, dispatch);
                       }}
                     >
                       <i
@@ -77,7 +71,7 @@ const JobWindow = ({
                       onClick={() => {
                         dispatch(hiring(e.id));
                         dispatch(jobHire(e.job_title));
-                        handleMonthlyPay(e.salary);
+                        handleMonthlyPay(e.salary, dispatch, intervalId);
                       }}
                     >
                       get the job

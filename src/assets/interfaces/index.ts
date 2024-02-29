@@ -20,3 +20,6 @@ export interface Job {
   required_degree: string;
   hired: boolean;
 }
+export interface TimeManagement {
+  intervalId:number | null
+}
