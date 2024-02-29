@@ -5,9 +5,11 @@ import { useSelector } from "react-redux";
 const UserCard = ({
   setOptionsRender,
   setNavSelection,
+  optionRender
 }: {
   setOptionsRender: (value: boolean) => void;
   setNavSelection: (value: string) => void;
+  optionRender:boolean
 }) => {
   const user = useSelector((state: RootState) => state.user);
   return (
@@ -28,7 +30,7 @@ const UserCard = ({
         <i
           style={{ cursor: "pointer" }}
           className="fa-solid fa-gear"
-          onClick={() => {setOptionsRender(true),setNavSelection('')}}
+          onClick={() => {setOptionsRender(!optionRender),setNavSelection('')}}
         ></i>
       </div>
     </div>

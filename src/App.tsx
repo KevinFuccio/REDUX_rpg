@@ -23,12 +23,13 @@ function App() {
     }
   }, [navSelection]);
 
-  const windowSelectior = () => {
+  const windowSelector = () => {
     switch (navSelection) {
       case NavSection.JOB:
         return (
           <JobWindow
             setNavSelection={setNavSelection}
+            navSelection={navSelection}
           />
         );
       case NavSection.HOUSE:
@@ -40,17 +41,18 @@ function App() {
   };
   return (
     <>
-      <NavBar setNavSelection={setNavSelection} />
+      <NavBar setNavSelection={setNavSelection} navSelection={navSelection}  />
       <UserCard
         setOptionsRender={setOptionsRender}
         setNavSelection={setNavSelection}
+        optionRender={optionsRender}
       />
       {optionsRender ? (
         <OptionWindow setOptionsRender={setOptionsRender} />
       ) : (
         <></>
       )}
-      {windowSelectior()}
+      {windowSelector()}
     </>
   );
 }
