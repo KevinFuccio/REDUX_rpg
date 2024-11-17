@@ -10,10 +10,10 @@ const jobSlice = createSlice({
     name:"job",
     initialState,
     reducers:{
-        hiring: (state, action:PayloadAction<number>) => {
+        getJob: (state, action:PayloadAction<number>) => {
             const selectedJobIndex = state.findIndex(job => job.id === action.payload);
             state.forEach((e:Job)=>{
-                if(e.hired  === true){
+                if(e.hired){
                     e.hired = false
                 }
             })
@@ -21,7 +21,7 @@ const jobSlice = createSlice({
                 state[selectedJobIndex].hired = true;
             }
         },
-        quit:(state,action:PayloadAction<number>)=>{
+        quitJob:(state,action:PayloadAction<number>)=>{
             const selectedJobIndex = state.findIndex(job => job.id === action.payload);
             if (selectedJobIndex !== -1) {
                 state[selectedJobIndex].hired = false;
@@ -32,6 +32,6 @@ const jobSlice = createSlice({
     
 })
 
-export const {hiring,quit} = jobSlice.actions
+export const {getJob,quitJob} = jobSlice.actions
 
 export default jobSlice.reducer

@@ -1,14 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Job } from "../../interfaces";
-import { hiring, quit } from "../../state/jobList";
+import { getJob, quitJob } from "../../state/jobList";
 import "./style.scss";
 import { AppDispatch, RootState } from "../../state/store";
 import { jobHire, jobQuit } from "../../state/user";
-import {
-  handleClearInterval,
-  handleMonthlyPay,
-  useCardRemoverWhenUnfocusedString,
-} from "../../utils";
+import {useCardRemoverWhenUnfocusedString,} from "../../utils";
+import React from "react";
+
 
 const JobWindow = ({
   setNavSelection,
@@ -18,15 +16,44 @@ const JobWindow = ({
   navSelection: string;
 }) => {
   const jobsList = useSelector((state: RootState) => state.jobList);
-  const intervalId = useSelector(
-    (state: RootState) => state.timeManage.intervalId
-  );
   const dispatch = useDispatch<AppDispatch>();
   const { cardRef } = useCardRemoverWhenUnfocusedString(
     setNavSelection,
     navSelection
   );
+  
+  const hiredBtn = (job: Job) => {
+    if (job.hired) {
+      return (
+        <button
+          className="quitBtn"
+          onClick={() => {
+            dispatch(quitJob(job.id));
+            dispatch(jobQuit());
+          }}
+        >
+          <i
+            style={{
+              cursor: "pointer",
+            }}
+            className="fa-solid fa-xmark"
+          ></i>
+        </button>
+      )
+    } else {
+      return (
+        <button
+          onClick={() => {
+            dispatch(getJob(job.id));
+            dispatch(jobHire([job.job_title,job.salary]));
+          }}
+        >
+          get the job
+        </button>
+      )
+    }
 
+  }
   return (
     <div className="blurWindowContainer">
       <div
@@ -44,7 +71,7 @@ const JobWindow = ({
         }}
         ref={cardRef}
       >
-        <div style={{ display: "flex", flexDirection: "row-reverse", paddingBottom:"12px"}}>
+        <div style={{ display: "flex", flexDirection: "row-reverse", paddingBottom: "12px" }}>
           <i
             style={{
               cursor: "pointer",
@@ -62,33 +89,7 @@ const JobWindow = ({
                   <td>{e.salary}</td>
                   <td>{e.required_degree}</td>
                   <td>
-                    {e.hired ? (
-                      <button
-                        className="quitBtn"
-                        onClick={() => {
-                          dispatch(quit(e.id));
-                          dispatch(jobQuit());
-                          handleClearInterval(intervalId, dispatch);
-                        }}
-                      >
-                        <i
-                          style={{
-                            cursor: "pointer",
-                          }}
-                          className="fa-solid fa-xmark"
-                        ></i>
-                      </button>
-                    ) : (
-                      <button
-                        onClick={() => {
-                          dispatch(hiring(e.id));
-                          dispatch(jobHire(e.job_title));
-                          handleMonthlyPay(e.salary, dispatch, intervalId);
-                        }}
-                      >
-                        get the job
-                      </button>
-                    )}
+                    {hiredBtn(e)}
                   </td>
                 </tr>
               </tbody>

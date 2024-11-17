@@ -1,3 +1,4 @@
+import React from "react";
 import { NavSection } from "../../interfaces";
 import "./index.scss";
 const NavBar = ({setNavSelection,navSelection}:{setNavSelection:(value:string)=>void,navSelection:string}) => {

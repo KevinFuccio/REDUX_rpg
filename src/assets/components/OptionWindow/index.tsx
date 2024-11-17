@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../state/store";
 import { useCardRemoverWhenUnfocusedBoolean } from "../../utils";
 import "./style.scss"
+import React from "react";
 
 const OptionWindow = ({
   setOptionsRender,
@@ -14,7 +15,6 @@ const OptionWindow = ({
     <div className="blurWindowContainer">
       <div
         style={{
-          width: "250px",
           height: "250px",
           border: "1px solid black",
           padding: "12px",

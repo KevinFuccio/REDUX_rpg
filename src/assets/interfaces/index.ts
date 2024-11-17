@@ -7,6 +7,7 @@ export type User = {
   money: number;
   gender: string;
   job: string;
+  jobYearlySalary:string;
 };
 export enum NavSection {
   JOB = "JOB",
@@ -21,5 +22,8 @@ export interface Job {
   hired: boolean;
 }
 export interface TimeManagement {
-  intervalId:number | null
+  intervalId:number | null,
+  day:number,
+  month:number,
+  year:number
 }

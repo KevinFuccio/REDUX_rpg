@@ -1,6 +1,7 @@
 import "./style.scss";
 import { RootState } from "../../state/store";
 import { useSelector } from "react-redux";
+import React from "react";
 
 const UserCard = ({
   setOptionsRender,
