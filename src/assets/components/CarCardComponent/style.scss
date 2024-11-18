@@ -1,0 +1,47 @@
+.car-card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .car-card{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100px;
+      margin-bottom: 10px;
+    }
+    .car-card-img{
+      img{
+        width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+      }
+    }
+    .car-card-info{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 80px;
+      margin-bottom: 10px;
+      p{
+        margin: 0;
+      }
+    }
+    .car-card-btn{
+        .sellBtn{
+            padding: 8px 16px;
+            background-color: #af4c4c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+          .buybtn {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+    }
+}

@@ -16,6 +16,7 @@ const JobWindow = ({
   navSelection: string;
 }) => {
   const jobsList = useSelector((state: RootState) => state.jobList);
+  const day = useSelector((state:RootState)=> state.timeManage.day);
   const dispatch = useDispatch<AppDispatch>();
   const { cardRef } = useCardRemoverWhenUnfocusedString(
     setNavSelection,
@@ -45,7 +46,7 @@ const JobWindow = ({
         <button
           onClick={() => {
             dispatch(getJob(job.id));
-            dispatch(jobHire([job.job_title,job.salary]));
+            dispatch(jobHire([job.job_title,job.salary,day.toString()]));
           }}
         >
           get the job

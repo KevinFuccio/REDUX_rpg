@@ -2,14 +2,15 @@ import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "./assets/state/store";
 import { useEffect, useState } from "react";
-import { jobPay, userFetchData } from "./assets/state/user";
+import { userFetchData } from "./assets/state/user";
 import UserCard from "./assets/components/UserCard";
 import OptionWindow from "./assets/components/OptionWindow";
 import NavBar from "./assets/components/NavBar";
 import { NavSection } from "./assets/interfaces";
 import JobWindow from "./assets/components/JobWindowComponent";
 import React from "react";
-import { handleClearInterval, startTime, UNEMPLOYED } from "./assets/utils";
+import { handleClearInterval, payChecker, startTime, UNEMPLOYED } from "./assets/utils";
+import CarWindowComponent from "./assets/components/CarWindowComponent";
 function App() {
   const dispatch = useDispatch<AppDispatch>();
   const [optionsRender, setOptionsRender] = useState<boolean>(false);
@@ -27,8 +28,8 @@ function App() {
     return ()=> handleClearInterval(intervalId,dispatch);
   },[])
   useEffect(()=>{
-    if(day === 30 && user.job !== UNEMPLOYED){
-      dispatch(jobPay(user.jobYearlySalary));
+    if(user.job !== UNEMPLOYED){
+      payChecker(day,month,dispatch,user.jobYearlySalary,user.hireDate)
     }
   },[day])
   useEffect(() => {
@@ -48,7 +49,10 @@ function App() {
         );
       case NavSection.HOUSE:
         return;
-
+      case NavSection.CAR:
+        return(
+          <CarWindowComponent setNavSelection={setNavSelection} navSelection={navSelection}/>
+        )
       default:
         break;
     }
@@ -72,4 +76,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

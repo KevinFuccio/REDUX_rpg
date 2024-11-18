@@ -1,0 +1,72 @@
+[
+    {
+        "id": 0,
+        "vehicle_img": "/public/fiat_500.webp",
+        "vehicle_name": "Fiat 500",
+        "price": "$20,000",
+        "isPurchase": false
+    },
+    {
+        "id": 1,
+        "vehicle_img": "/public/fiat_panda.jpg",
+        "vehicle_name": "Fiat Panda",
+        "price": "$15,000",
+        "isPurchase": false
+    },
+    {
+        "id": 2,
+        "vehicle_img": "/public/fiat_grande_punto.jpg",
+        "vehicle_name": "Fiat Grande Punto",
+        "price": "$18,000",
+        "isPurchase": false
+    },
+    {
+        "id": 3,
+        "vehicle_img": "/public/fiat_tipo.jpg",
+        "vehicle_name": "Fiat Tipo",
+        "price": "$19,500",
+        "isPurchase": false
+    },
+    {
+        "id": 4,
+        "vehicle_img": "/public/golf.jpg",
+        "vehicle_name": "Volkswagen Golf",
+        "price": "$24,000",
+        "isPurchase": false
+    },
+    {
+        "id": 5,
+        "vehicle_img": "/public/beetle.jpg",
+        "vehicle_name": "Volkswagen Beetle",
+        "price": "$23,000",
+        "isPurchase": false
+    },
+    {
+        "id": 6,
+        "vehicle_img": "/public/passat.jpg",
+        "vehicle_name": "Volkswagen Passat",
+        "price": "$27,000",
+        "isPurchase": false
+    },
+    {
+        "id": 7,
+        "vehicle_img": "/public/tiguan.jpg",
+        "vehicle_name": "Volkswagen Tiguan",
+        "price": "$29,000",
+        "isPurchase": false
+    },
+    {
+        "id": 8,
+        "vehicle_img": "/public/polo.jpg",
+        "vehicle_name": "Volkswagen Polo",
+        "price": "$20,000",
+        "isPurchase": false
+    },
+    {
+        "id": 9,
+        "vehicle_img": "/public/fiat_doblo.jpg",
+        "vehicle_name": "Fiat Doblò",
+        "price": "$22,000",
+        "isPurchase": false
+    }
+]

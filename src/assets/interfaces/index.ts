@@ -8,6 +8,7 @@ export type User = {
   gender: string;
   job: string;
   jobYearlySalary:string;
+  hireDate:string | null
 };
 export enum NavSection {
   JOB = "JOB",
@@ -26,4 +27,11 @@ export interface TimeManagement {
   day:number,
   month:number,
   year:number
+}
+export interface Car{
+  id: number,
+  vehicle_img: string,
+  vehicle_name: string,
+  price: string,
+  isPurchase: boolean
 }

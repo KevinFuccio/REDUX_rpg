@@ -8,7 +8,8 @@ const initialState:User = {
     money:0,
     gender:"",
     job:'Unemployed',
-    jobYearlySalary:''
+    jobYearlySalary:'',
+    hireDate: null
 }
 
 const userSlice = createSlice({
@@ -16,9 +17,10 @@ const userSlice = createSlice({
     initialState,
     reducers:{
        jobHire: (state,action:PayloadAction<string[]>)=>{
-        const [job,jobYearlySalary] = action.payload;
+        const [job,jobYearlySalary,hireDate] = action.payload;
         state.job = job
         state.jobYearlySalary = jobYearlySalary
+        state.hireDate = hireDate;
        },
        jobPay:(state,action:PayloadAction<string>)=>{
         const paycheck = action.payload.replace(/[$,]/g, '');
@@ -26,6 +28,10 @@ const userSlice = createSlice({
        },
        jobQuit:(state)=>{
         state.job = UNEMPLOYED;
+        state.hireDate = null;
+       },
+       removeMoney:(state,action:PayloadAction<number>)=>{
+            state.money -= action.payload;
        }
     },
     extraReducers: (builder)=>{
@@ -49,11 +55,12 @@ export const userFetchData = createAsyncThunk(
             money:250,
             gender:"M",
             job:'Unemployed',
-            jobYearlySalary:''
+            jobYearlySalary:'',
+            hireDate:null
             
         };
     }
 )
 
-export const {jobHire,jobPay,jobQuit} = userSlice.actions
+export const {jobHire,jobPay,jobQuit,removeMoney} = userSlice.actions
 export default userSlice.reducer
