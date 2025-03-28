@@ -35,3 +35,15 @@ export interface Car{
   price: string,
   isPurchase: boolean
 }
+export interface House {
+  id: number;
+  name: string;
+  price_buy: string; 
+  price_rent: string;
+  location: string; 
+  bedrooms: number;
+  bathrooms: number;
+  is_bought: boolean;
+  is_rented: boolean;
+}
+export type Option = Job | Car | House

@@ -1,7 +1,6 @@
 import "./style.scss";
 import { useCardRemoverWhenUnfocusedString,} from "../../utils";
-import React from "react";
-import CarCardComponent from "../CarCardComponent";
+import CarCardComponent from "../CarWindowComponent/CarCardComponent/index";
 
 
 const CarWindowComponent = ({setNavSelection,navSelection,}:

@@ -50,8 +50,8 @@ export const userFetchData = createAsyncThunk(
     async()=>{
         await new Promise((res)=>setTimeout(res,1000));
         return {
-            name:"Pivotkid80",
-            age:26,
+            name:"Giuseppe Chiarenza",
+            age:23,
             money:250,
             gender:"M",
             job:'Unemployed',

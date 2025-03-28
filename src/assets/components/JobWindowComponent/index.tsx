@@ -5,7 +5,7 @@ import "./style.scss";
 import { AppDispatch, RootState } from "../../state/store";
 import { jobHire, jobQuit } from "../../state/user";
 import {useCardRemoverWhenUnfocusedString,} from "../../utils";
-import React from "react";
+import React, { memo } from "react";
 
 
 const JobWindow = ({
@@ -22,6 +22,7 @@ const JobWindow = ({
     setNavSelection,
     navSelection
   );
+  
   
   const hiredBtn = (job: Job) => {
     if (job.hired) {
@@ -101,4 +102,4 @@ const JobWindow = ({
     </div>
   );
 };
-export default JobWindow;
+export default memo(JobWindow);

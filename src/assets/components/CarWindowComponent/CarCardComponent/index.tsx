@@ -1,15 +1,17 @@
-import React from "react";
+import { memo, useEffect } from "react";
 import "./style.scss"
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../state/store";
-import { Car } from "../../interfaces";
-import { buyCar, sellCar } from "../../state/carList";
-import { removeMoney } from "../../state/user";
-import { priceStringConverter } from "../../utils";
+import { AppDispatch, RootState } from "../../../state/store";
+import { Car } from "../../../interfaces";
+import { buyCar, sellCar } from "../../../state/carList";
+import { removeMoney } from "../../../state/user";
+import { priceStringConverter } from "../../../utils";
 
 const CarCardComponent = () => {
   const carList = useSelector((state: RootState) => state.carList);
   const user = useSelector((state: RootState) => state.user);
+  const day = useSelector((state:RootState)=>state.timeManage.day)
+  const paycheckDay = day === Number(user.hireDate)
   const dispatch = useDispatch<AppDispatch>();
   const canUserBuyCar = (car: Car) => {
     const carPrice = priceStringConverter(car.price);
@@ -19,7 +21,10 @@ const CarCardComponent = () => {
     } else {
       alert("you don't have enough money");
     }
-  };
+  }
+  useEffect(()=>{
+  },[paycheckDay])
+    
   const purchaseBtn = (car: Car) => {
     if (car.isPurchase) {
       return (
@@ -40,6 +45,7 @@ const CarCardComponent = () => {
     } else {
       return (
         <button className="buybtn"
+          disabled={(priceStringConverter(car.price) > user.money)}
           onClick={() => {
             canUserBuyCar(car);
           }}
@@ -49,6 +55,7 @@ const CarCardComponent = () => {
       );
     }
   };
+
   return (
 
     <div className="car-card-container">
@@ -69,4 +76,4 @@ const CarCardComponent = () => {
     </div>
   );
 };
-export default CarCardComponent;
+export default memo(CarCardComponent);
